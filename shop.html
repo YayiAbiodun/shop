@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Now</title>
+    <link rel="icon" href="./assets/icon-192.png">
+    <link rel="icon" href="./assets/icon-384.png">
+    <link rel="icon" href="./assets/icon-512.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./shop.css">
+   <link rel="manifest" href="./manifest.json">
+    <script src="./dexie.min.js"></script>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+          // Use the window load event to keep the page load performant
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+          });
+        }
+    </script>  
+
+</head>
+<body>
+    <nav class="navbar">
+         <div class="logo">
+             <img src="assets/icon-512.png" alt="">
+         </div>
+        <p class="title">Shop Now</p>       
+        <div class="cart_icon">
+            <div class="cart_wrapper">
+                <span class="count"></span>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
+            </div> 
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form_wrapper">
+            <form action="" id="itemForm">
+                <div class="form-group">
+                    <label for=""> Item Name </label>
+                    <input type="text" id="nameInput">
+                </div>
+                <div class="quant">
+                    <div class="form-group">
+                        <label for="">Quantity: </label>
+                        <input type="number" id="quantityInput" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Price:</label>
+                        <input type="number" id="priceInput" min="0" >
+                    </div>
+                </div>
+                <input type="submit" value="AddItem" id="addButton">
+            </form>
+        </div>
+    </div>
+    <div class="display-wrapper">
+        <div class="display">
+            <button id="clearButton" >Clear all</button>
+            <p id="total">All Price: <span class="totalPrice"> </span></p>
+        </div>
+    </div>
+    <hr>
+    <div class="editContainer" >
+        <div class="container  editBox">
+            <div class="form_wrapper editBox">
+                <form action="" id="editForm">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="itemContainer">
+           
+    </div>
+ 
+   
+    <script src="./shop.js"></script>
+</body>
+</html>
